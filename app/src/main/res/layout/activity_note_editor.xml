@@ -1,41 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#B2EBF2"
-        android:orientation="vertical">
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/ed_title"
-            android:hint="Input title"
-            android:textSize="30dp"
-            android:gravity="top"
-            android:inputType="text"/>
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/ed_content"
-            android:hint="Input content"
-            android:gravity="top"
-            android:textSize="25dp"
-            android:inputType="text"/>
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/recycler_background_color_white"
+    android:orientation="vertical">
 
     <Button
-            android:id="@+id/bt_save"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:textSize="25dp"/>
+            android:layout_height="5dp"
+            android:background="@color/recycler_background_color_white"/>
 
-    <Button
-            android:id="@+id/bt_delete"
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:textSize="25dp"/>
+            android:layout_height="match_parent"
+            android:id="@+id/ll_editor"
+            android:background="@drawable/note_item_yellow"
+            android:orientation="vertical">
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:id="@+id/bt_line_editor"
+                android:background="@drawable/top_line_yellow"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_title"
+                android:hint="Input title"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="top"
+                android:inputType="text"
+                android:background="@android:color/transparent"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/darker_gray"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/ed_content"
+                android:hint="Input content"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:inputType="textMultiLine"
+                android:background="@android:color/transparent"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/darker_gray"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_day_editor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Date Modified"
+                android:textSize="15dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

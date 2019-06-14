@@ -3,17 +3,22 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ll_note_element"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/note_item_background"
+        android:layout_height="112dp"
+        android:background="@drawable/note_item_yellow"
         android:orientation="vertical">
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:id="@+id/bt_line_note_element"
+            android:background="@drawable/top_line_yellow"/>
 
     <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginLeft="10dp">
 
         <TextView
                 android:layout_width="wrap_content"
@@ -22,7 +27,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:text="Title"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
         <TextView
@@ -31,8 +36,9 @@
                 android:id="@+id/tv_day_modified"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="7dp"
                 android:text="Date Modified"
-                android:textSize="20dp"/>
+                android:textSize="11dp"/>
     </RelativeLayout>
 
     <TextView
@@ -42,5 +48,7 @@
             android:layout_marginRight="10dp"
             android:id="@+id/tv_content"
             android:text="This is content"
-            android:textSize="20dp"/>
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:textSize="15dp"/>
 </LinearLayout>

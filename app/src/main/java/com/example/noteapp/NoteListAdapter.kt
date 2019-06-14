@@ -4,6 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.note_item.view.*
 
@@ -11,11 +15,14 @@ class NoteListAdapter internal constructor(context: Context): RecyclerView.Adapt
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var notes = emptyList<Note>()
     private lateinit var mListener: NoteItemClickListener
+    private lateinit var mDisplayColor: DisplayColorNote
 
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var tvTitle = itemView.tv_title
-        var tvContent = itemView.tv_content
-        var tvDayModified = itemView.tv_day_modified
+        var tvTitle: TextView = itemView.tv_title
+        var tvContent: TextView = itemView.tv_content
+        var tvDayModified: TextView = itemView.tv_day_modified
+        var llNoteElement: LinearLayout = itemView.ll_note_element
+        var btLineNoteElement: Button = itemView.bt_line_note_element
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -27,7 +34,9 @@ class NoteListAdapter internal constructor(context: Context): RecyclerView.Adapt
         val current = notes[position]
         holder.tvTitle.text = current.title
         holder.tvContent.text = current.content
-        holder.tvDayModified.text = current.dateModified
+        holder.tvDayModified.text = current.dateModified.substring(0, 11)
+        holder.llNoteElement.background = mDisplayColor.getLlDrawable(current.color)
+        holder.btLineNoteElement.background = mDisplayColor.getBtDrawable(current.color)
 
         holder.itemView.setOnClickListener {
             mListener.onItemCLicked(position)
@@ -45,6 +54,10 @@ class NoteListAdapter internal constructor(context: Context): RecyclerView.Adapt
 
     internal fun setListener(mListener: NoteItemClickListener) {
         this.mListener = mListener
+    }
+
+    internal fun setDisplayColor(mDisplayColor: DisplayColorNote) {
+        this.mDisplayColor = mDisplayColor
     }
 
     override fun getItemCount(): Int {
