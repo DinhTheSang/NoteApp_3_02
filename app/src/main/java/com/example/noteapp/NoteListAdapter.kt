@@ -9,7 +9,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_note_editor.view.*
 import kotlinx.android.synthetic.main.note_item.view.*
+import java.io.File
 
 class NoteListAdapter internal constructor(context: Context): RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -23,8 +25,8 @@ class NoteListAdapter internal constructor(context: Context): RecyclerView.Adapt
         var tvDayModified: TextView = itemView.tv_day_modified
         var llNoteElement: LinearLayout = itemView.ll_note_element
         var btLineNoteElement: Button = itemView.bt_line_note_element
-    }
 
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val itemView = inflater.inflate(R.layout.note_item, parent, false)
         return NoteViewHolder(itemView)
